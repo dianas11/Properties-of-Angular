@@ -1,0 +1,29 @@
+<h2 *ngIf="displayName; elseBlock">Ohayo Diana Senpai!</h2>
+<ng-template #elseBlock><h2>Gomenne Senpai!</h2></ng-template>
+
+<hr>
+
+<!-- alternative syntax
+<div *ngIf="displayName; then thenBlock; else elseBlock">
+    <ng-template #thenBlock>
+        <h2>Welcome Senpai</h2>
+    </ng-template>
+    <ng-template #elseBlock>
+        <h2>Gomenne Senpai</h2>
+    </ng-template>
+</div> -->
+
+<!--ngSwitch-->
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">You picked red color</div>
+    <div *ngSwitchCase="'blue'">You picked blue color</div>
+    <div *ngSwitchCase="'yellow'">You picked yellow color</div>
+    <div *ngSwitchDefault>Pick again</div>
+</div>
+
+<hr>
+
+<!-- ngFor directive -->
+<div *ngFor= "let a of anime; index as i">
+    <h3>{{i}} {{a}}</h3>
+</div>

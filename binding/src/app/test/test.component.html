@@ -1,0 +1,62 @@
+<!-- string interpolation -->
+<h2>Welcome {{name}}</h2>  
+<h2>{{2+2}}</h2>
+<h2>{{"Welcome " + name}}</h2>
+<h2>{{name.length}}</h2>
+<h2>{{name.toUpperCase()}}</h2>
+<h2>{{greetUser()}}</h2>
+<h3>{{siteUrl}}</h3>
+<hr>
+
+<!-- property binding -->
+
+<!-- we need to bind the property testId value to the html  id property of this input element -->
+<!--we enclose id within square brackets "[id]" and to this we assign the property i.e., "myId"-->
+<!--now if we look at the browser we can see that for this input element the id is set to testId which is the value of this "myId" property
+thus we are binding to the id property of this input element hence property binding.-->
+<input type="text" [id]="myId" value="Diana Satapathy">
+<br>
+<!--can also use interpolation-->
+<input [disabled]="isDisabled" type="text" id={{myId}} value="Diana Satapathy">
+<hr>
+
+<!--class binding-->
+<h2 class="text-success">Hello Diana Senpai</h2>  <!--class attribute-->
+<h2 [class]="successClass">Ohayo Senpai</h2> <!--class binding-->
+
+<!--using bothe class attribute and class binding-->
+<h2 class="text-special"  [class]="successClass">Gomenne Senpai!</h2>
+<!--a regular class attribute becomes a dummy attribute in the presence of class binding thus use any one.-->
+
+<h2 [class.text-danger]="hasError">Senpai na kawaii!!</h2>
+
+<!-- ngClass directive for adding multiple classes -->
+<h3 [ngClass]="messageClasses">Senpai na baka!!</h3>
+
+<hr>
+<!--style binding-->
+<h1 [style.color]="'orange'">Style Binding</h1>
+<h1 [style.color]="hasError ? 'red' : 'green' ">Binding using style!!</h1>
+<h2 [style.color]="highlightColor">Binding binding binding!!</h2>
+
+<h2 [ngStyle]="titleStyles">Binding 3</h2>
+
+<hr>
+<!--event binding-->
+<!--listening to click event-->
+<button (click)="onClick($event)">Greet </button>
+<button (click)="greeting='Welcome Senpai!'">Greet</button> <!--as a template statement-->
+{{greeting}}
+
+<hr>
+
+<h1>template reference variable</h1>
+<input #myInput type="text">
+<button (click)="logMessage(myInput.value)">LOG</button>
+
+<hr>
+
+<!--two way binding-->
+<h1>TWO WAY BINDING</h1>
+<input type="text" [(ngModel)]="surname">
+{{surname}}
